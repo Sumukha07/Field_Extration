@@ -2,7 +2,7 @@ import os
 import re
 import csv
 import json
-import PyMuPDF 
+import pymupdf 
 import pytesseract
 import pdfplumber
 import google.generativeai as genai
