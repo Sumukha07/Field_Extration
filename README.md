@@ -7,30 +7,26 @@ This project is a streamlined and intelligent solution for extracting key data f
 ---
 
 ## 🛠️ System Workflow
+graph LR
+    A[Input Files] --> B{File Type Detection}
+    B -->|Digital PDF| C1[Digital PDF Processing]
+    B -->|Scanned PDF| C2[Scanned PDF Processing]
+    B -->|Image| C3[Image Processing]
+    C1 --> D[Text Extraction]
+    C2 --> E[OCR Processing]
+    C3 --> E
+    D --> F{{Field Extraction}}
+    E --> F
+    F -->|Output Format| G{Output Selection}
+    G --> G1[CSV Output]
+    G --> G2[JSON Output]
 
-```mermaid
-flowchart TD
-    A[📥 Input PDF] --> B[🧹 Preprocess Images]
-    B --> C[🔍 Perform OCR]
-    C --> D[🧾 Extract Raw Text]
-    D --> E[🔎 Identify Fields]
-    E --> F[✅ Validate Data]
-    F --> G[📤 Export Results]
-
-    subgraph "Image Preprocessing"
-    B1[Convert PDF to Image] --> B2[Remove Noise]
-    B2 --> B3[Enhance Quality]
+    subgraph Field_Extraction_Process
+    F --> F1[Gemini AI Processing]
+    F1 -->|Fallback| F2[Pattern Matching]
     end
 
-    subgraph "OCR Engine"
-    C1[Use Tesseract] --> C2[Post-OCR Cleanup]
-    end
-
-    subgraph "Extraction Logic"
-    E1[Regex & Heuristics] --> E2[NLP Context Parsing]
-    E2 --> E3[Field Confirmation]
-    end
-```
+  
 
 ---
 
