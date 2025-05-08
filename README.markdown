@@ -1,4 +1,4 @@
-# Exctracting_Fields From Invoice
+# Fields_Extracting From An Invoice
 
 ## Objective
 Build a Python solution to extract structured fields (e.g., invoice number, date, total amount, vendor name) from invoices/financial PDFs (digital/scanned) and support batch processing across documents.
