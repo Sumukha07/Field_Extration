@@ -132,17 +132,7 @@ graph LR
 - **Integration Tests**: Ensure the pipeline works cohesively across file types (digital PDFs, scanned PDFs, images) and output formats (CSV, JSON).
 - **Edge Case Testing**: Tests for multi-page tables, rotated text, low-resolution scans, and invalid file inputs.
 
-### Running Tests
-```bash
-# Run all tests
-pytest tests/
 
-# Run specific test module
-pytest tests/test_field_extraction.py
-
-# Generate coverage report
-pytest --cov=src tests/
-```
 
 ### Performance Comparison
 The performance of the pipeline was evaluated across different input types and processing methods:
