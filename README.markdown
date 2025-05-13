@@ -125,56 +125,7 @@ graph LR
    - Fallback: Pattern matching for reliability
    - OCR for scanned documents
 
-## Testing
 
-### Test Framework
-- **Unit Tests**: Implemented using `pytest` to validate individual components such as text extraction, OCR processing, and field extraction logic.
-- **Integration Tests**: Ensure the pipeline works cohesively across file types (digital PDFs, scanned PDFs, images) and output formats (CSV, JSON).
-- **Edge Case Testing**: Tests for multi-page tables, rotated text, low-resolution scans, and invalid file inputs.
-
-
-
-### Performance Comparison
-The performance of the pipeline was evaluated across different input types and processing methods:
-
-| Input Type       | Processing Method       | Avg. Processing Time (s) | Memory Usage (MB) |
-|------------------|-------------------------|--------------------------|-------------------|
-| Digital PDF      | pdfplumber + Gemini AI  | 2.5                      | 150               |
-| Scanned PDF      | Tesseract + Gemini AI   | 5.8                      | 220               |
-| Image (PNG/JPG)  | Tesseract + Gemini AI   | 4.2                      | 180               |
-| Digital PDF      | Pattern Matching        | 1.8                      | 120               |
-| Scanned PDF      | Pattern Matching        | 3.5                      | 160               |
-
-**Notes**:
-- Gemini AI provides higher accuracy but increases processing time due to API calls.
-- Pattern matching is faster but less robust for complex layouts.
-
-### OCR Table Extraction Comparison
-The accuracy of table extraction was compared between Tesseract OCR and pdfplumber for different document types:
-
-| Document Type    | Tool         | Table Structure Accuracy (%) | Text Accuracy (%) |
-|------------------|--------------|-----------------------------|-------------------|
-| Digital PDF      | pdfplumber   | 95                          | 98                |
-| Scanned PDF      | Tesseract    | 85                          | 90                |
-| Image            | Tesseract    | 80                          | 88                |
-
-**Observations**:
-- pdfplumber excels in digital PDFs due to native table detection.
-- Tesseract struggles with noisy or rotated tables in scanned documents.
-
-### Field Extraction Accuracy
-The accuracy of extracting key fields (invoice number, date, total amount, vendor name) was evaluated across 100 sample documents:
-
-| Field             | Gemini AI Accuracy (%) | Pattern Matching Accuracy (%) |
-|-------------------|-----------------------|-------------------------------|
-| Invoice Number    | 92                    | 85                            |
-| Date              | 90                    | 80                            |
-| Total Amount      | 88                    | 75                            |
-| Vendor Name       | 85                    | 70                            |
-
-**Insights**:
-- Gemini AI outperforms pattern matching, especially for varied layouts and unstructured text.
-- Pattern matching is reliable for standardized formats but fails with inconsistent vendor styles.
 
 ## Security
 
