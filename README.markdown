@@ -96,7 +96,7 @@ graph LR
 
    Command Line:
    ```bash
-   python extract_invoices.py
+   python main.py
    ```
 
 ## Features
